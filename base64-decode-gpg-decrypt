@@ -25,4 +25,5 @@
 # License: GPL
 # Contact: Joel Parker Henderson (joel@joelparkerhenderson.com)
 ##
+set -euf
 base64 --decode | GPG_TTY=$(tty) gpg --decrypt
