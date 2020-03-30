@@ -1,1 +1,28 @@
+#!/bin/sh
+
+##
+# Command to decode and decrypt a base64-encoded GPG-encrypted message.
+#
+# Example:
+#
+#     $ cat message.txt | base64-decode-gpg-decrypt
+#     hello world
+#
+# This implementation uses the commands `base64` and `gpg`.
+#
+# This implementation sets GPG TTY to the current `tty`,
+# which sets GPG to prompt for the password by using the
+# user's current terminal (rather than the system's GUI).
+#
+# If you prefer to use a diffferent GPG prompt, then you
+# can edit this script, and also please let send feedback
+# to us so we can learn more ways to work on this script.
+#
+# Command: base64-decode-gpg-decrypt
+# Version: 1.0.0
+# Created: 2020-03-25
+# Updated: 2020-03-29
+# License: GPL
+# Contact: Joel Parker Henderson (joel@joelparkerhenderson.com)
+##
 base64 --decode | GPG_TTY=$(tty) gpg --decrypt
