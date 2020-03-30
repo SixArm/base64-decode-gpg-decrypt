@@ -8,7 +8,9 @@
 #     $ cat message.txt | base64-decode-gpg-decrypt
 #     hello world
 #
-# This implementation uses the commands `base64` and `gpg`.
+# ## Implementation
+#
+# This script uses the commands `base64`, `gpg`, and `tty`.
 #
 # This implementation sets GPG TTY to the current `tty`,
 # which sets GPG to prompt for the password by using the
@@ -17,6 +19,28 @@
 # If you prefer to use a diffferent GPG prompt, then you
 # can edit this script, and also please let send feedback
 # to us so we can learn more ways to work on this script.
+#
+# ## For macOS and brew
+#
+# If you use macOS and brew then you can install the
+# commands and configure them such as:
+#
+#     brew install gpg2
+#     brew install pinentry-mac
+#     echo "pinentry-program /usr/local/bin/pinentry-mac" >> ~/.gnupg/gpg-agent.conf
+#
+# If you want to ensure that GPG always uses your TTY,
+# then you can add these lines to your environment configuration,
+# such as the file `~/.bashrc` or `~/.zshenv`:
+#
+#     GPG_TTY=$(tty)
+#     export GPG_TTY
+#
+# It is important that the GPG_TTY environment variable 
+# always matches the output of the tty command. 
+# For W32 systems this option is not required.
+#
+# ## Tracking
 #
 # Command: base64-decode-gpg-decrypt
 # Version: 1.0.0
